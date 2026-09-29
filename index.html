@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earn Zone</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#120d19;color:#fff;font-family:Arial,sans-serif}
+body{min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:30px 15px}
+.card{width:100%;max-width:380px;background:#2D1D6B;border-radius:20px;padding:24px 20px;box-shadow:0 10px 30px #0008}
+h1{text-align:center;margin:0 0 22px;font-size:28px}
+.balance{text-align:center;background:#21154f;border-radius:16px;padding:20px;margin-bottom:18px}
+.diamond{font-size:38px}
+#balance{font-size:34px;font-weight:bold;color:#D77BB1;margin-top:5px}
+.label{color:#ddd;margin-top:4px}
+button{width:100%;border:0;border-radius:12px;padding:14px;margin-top:10px;font-size:17px;font-weight:bold;cursor:pointer}
+.task{background:#fff;color:#25175d}
+.youtube{background:#ff2d2d;color:#fff}
+.redeem{background:#f5b400;color:#211400}
+.reset{background:#555;color:#fff}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>💎 Earn Zone</h1>
+  <div class="balance">
+    <div class="diamond">💎</div>
+    <div id="balance">0</div>
+    <div class="label">Diamond</div>
+  </div>
+  <button class="task" onclick="addDiamond()">+1 Diamond</button>
+  <button class="youtube" onclick="window.open('https://www.youtube.com/','_blank')">▶ YouTube</button>
+  <button class="redeem" onclick="alert('Redeem feature coming soon')">💰 Redeem</button>
+  <button class="reset" onclick="resetDiamond()">Reset Diamond</button>
+</div>
+<script>
+let diamond = Number(localStorage.getItem('diamond') || 0);
+const balance = document.getElementById('balance');
+function show(){balance.textContent=diamond}
+function addDiamond(){diamond++;localStorage.setItem('diamond',diamond);show()}
+function resetDiamond(){diamond=0;localStorage.setItem('diamond',0);show()}
+show();
+</script>
+</body>
+</html>
